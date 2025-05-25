@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To My Love 💕</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* start content from top */
+      min-height: 100vh; /* at least full viewport height */
+      overflow-x: hidden; /* hide horizontal scrollbar */
+      color: #fff;
+      text-align: center;
+      padding-top: 40px; /* some top spacing */
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 0 20px;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      animation: beat 1s infinite;
+      margin: 30px auto;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 100px;
+      height: 90px;
+      position: absolute;
+      background: red;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      top: 0;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      transform: rotate(45deg);
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .photo-container {
+      margin: 20px 0;
+    }
+
+    .photo-container img {
+      max-width: 300px;
+      border: 5px solid white;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .photo-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .countdown {
+      margin-top: 20px;
+      font-size: 1.4em;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+      max-width: 90vw;
+      word-wrap: break-word;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 25px;
+      background: #fff;
+      color: #ff6f91;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff6f91;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Love ❤️</h1>
+  <div class="heart"></div>
+  <p>
+    I miss u so much deha, wanted to make something for u <br />
+    As they say, HAPPY WIFE HAPPY LIFE. <br />
+    STAY FOREVER LOVE 💗
+  </p>
+
+  <!-- Photo Section -->
+  <div class="photo-container">
+    <!-- Replace the 'your-photo.jpg' with your actual photo file name or URL -->
+    <img src="D:\IMG-20250308-WA0021.jpg" alt="Us Together" />
+  </div>
+
+  <!-- Birthday Countdown -->
+  <div class="countdown" id="countdown">
+    Loading countdown...
+  </div>
+
+  <button onclick="showMessage()">Click Me!</button>
+
+  <script>
+    function showMessage() {
+      alert("Cant wait for ur birthday my love. 💕");
+    }
+
+    // Set your girlfriend's birthday here (update date)
+    const birthday = new Date("August 09, 2025 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      if (distance <= 0) {
+        countdownEl.innerHTML = "🎉 Happy Birthday, My Love! 🎂";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s until your birthday! 🎂`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // initial call so no delay
+  </script>
+</body>
+</html>
+
